@@ -54,6 +54,24 @@ const Section = ({children, title}): Node => {
   );
 };
 
+const MyFC: () => Node = () => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const backgroundStyle = {
+  backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+  return (
+    <View
+      style={{
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      }}>
+      <Text>
+        Hello World, by cw1997
+      </Text>
+      <Button title={'GitHub: cw1997'} onPress={() => Alert.alert('https://github.com/cw1997/react-native-demo')}>GitHub repo</Button>
+    </View>
+  )
+}
+
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -63,35 +81,32 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <Text>
-          Hello World, by cw1997
-        </Text>
-        <Button title={'GitHub: cw1997'} onPress={() => Alert.alert('https://github.com/cw1997/react-native-demo')}>GitHub repo</Button>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+      <MyFC/>
+      {/*<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />*/}
+      {/*<ScrollView*/}
+      {/*  contentInsetAdjustmentBehavior="automatic"*/}
+      {/*  style={backgroundStyle}>*/}
+      {/*  <Header />*/}
+      {/*  <View*/}
+      {/*    style={{*/}
+      {/*      backgroundColor: isDarkMode ? Colors.black : Colors.white,*/}
+      {/*    }}>*/}
+      {/*    <Section title="Step One">*/}
+      {/*      Edit <Text style={styles.highlight}>App.js</Text> to change this*/}
+      {/*      screen and then come back to see your edits.*/}
+      {/*    </Section>*/}
+      {/*    <Section title="See Your Changes">*/}
+      {/*      <ReloadInstructions />*/}
+      {/*    </Section>*/}
+      {/*    <Section title="Debug">*/}
+      {/*      <DebugInstructions />*/}
+      {/*    </Section>*/}
+      {/*    <Section title="Learn More">*/}
+      {/*      Read the docs to discover what to do next:*/}
+      {/*    </Section>*/}
+      {/*    <LearnMoreLinks />*/}
+      {/*  </View>*/}
+      {/*</ScrollView>*/}
     </SafeAreaView>
   );
 };
